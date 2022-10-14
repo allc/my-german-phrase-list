@@ -1,17 +1,103 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+class Word {
+  constructor(word, audioUrl) {
+    this.word = word;
+    this.audioUrl = audioUrl;
+  }
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+class Phrase {
+  constructor(words, translation) {
+    this.words = words;
+    this.translation = translation;
+  }
+}
+
+class PhraseWordRender extends React.Component {
+  handleClick(word) {
+    let audioUrl = word.audioUrl;
+    if (audioUrl === null) {
+      return;
+    }
+    if (!audioUrl) {
+      audioUrl = `/audio/De-${word.word.replaceAll(" ", "_").replaceAll("?", "%253F")}.ogg`;
+    }
+    audioUrl = (audioUrl.startsWith("/audio/")) ? process.env.PUBLIC_URL + audioUrl : audioUrl;
+    let audio = new Audio(audioUrl);
+    audio.play();
+  }
+
+  render() {
+    return (
+            <>
+              <span onClick={() => this.handleClick(this.props.word)}>{this.props.word.word}</span>
+              {' '}
+            </>
+    );
+  }
+}
+
+function PhraseItem(props) {
+  return <li>{props.phrase.words.map((word, i) => <PhraseWordRender key={i} word={word}/>)}<small>{props.phrase.translation}</small></li>;
+}
+
+class PhraseList extends React.Component {
+  constructor(props) {
+    super(props);
+    const phrasesList = [
+      [[["Guten Abend", "/audio/De-guten_Abend.ogg"], ["!", null]], "Good evening!"],
+      [[["Wie", "/audio/De-wie.ogg"], ["heißen", ""], ["Sie", ""], ["?", null]], "What's your name?"],
+      [[["Ich heiße ...", ""]], "My name is ..."],
+      [[["Wie heißt du?", ""]], "What is your name?"],
+      [[["Und", "/audio/De-und.ogg"], ["wer", ""], ["bist", ""], ["du", ""], ["?", null]], "And who are you?"],
+      [[["Freut", "/audio/De-freut.ogg"], ["mich", ""], [".", null]], "I am glad."],
+      [[["Woher", "/audio/De-woher.ogg"], ["kommen", "/audio/De-kommen2.ogg"], ["Sie", ""], ["?", null]], "Where are you from?"],
+      [[["Ich", "/audio/De-ich.ogg"], ["kommen", "/audio/De-kommen2.ogg"], ["aus", ""], ["...", null]], "I come from ..."],
+      [[["Woher", "/audio/De-woher.ogg"], ["kommst", ""], ["du", ""], ["?", null]], "Where do you come from?"],
+      [[["Kommen", "/audio/De-kommen2.ogg"], ["Sie", ""], ["aus", ""], ["...?", null]], "Are you from ...?"],
+      [[["Wo", "/audio/De-wo.ogg"], ["wohnst", ""], ["du", ""], ["?", null]], "Where do you live?"],
+      [[["Welche", "/audio/De-welche.ogg"], ["Sprachen", "/audio/De-sprachen.ogg"], ["sprichst", ""], ["du", ""], ["?", null]], "Which languages ​​do you speak?"]
+    ];
+    let phrases = [];
+    for (const phrase of phrasesList) {
+      let words = [];
+      for (const word of phrase[0]) {
+        words.push(new Word(word[0], word[1]));
+      }
+      phrases.push(new Phrase(words, phrase[1]))
+    }
+    this.state = {
+      phrases: phrases,
+    };
+  }
+
+  render() {
+    return (
+      <ol>
+        {this.state.phrases.map((phrase, i) => <PhraseItem key={i} phrase={phrase}/>)}
+      </ol>
+    );
+  }
+}
+
+function Page(props) {
+  return (
+    <>
+      <header>
+        <h1>My German Phrase List</h1>
+        <small>Click on the German words or phrases to listen to the pronunciation.</small>
+      </header>
+      <main>
+        <PhraseList />
+      </main>
+      <footer>
+        <small></small>
+      </footer>
+    </>
+  )
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Page />);
