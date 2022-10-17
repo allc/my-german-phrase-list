@@ -30,7 +30,7 @@ Content is available under the <a href='https://creativecommons.org/licenses/by-
 
 ## Audio Files from Wikimedia Commons
 
-Audio files are from <a href='https://commons.wikimedia.org/wiki/Main_Page'>Wikimedia Commons</a> licensed under <a href='https://www.gnu.org/licenses/fdl-1.3.html'>GNU Free Documentation License</a> and/or <a href='https://creativecommons.org/licenses/by-sa/3.0/'> Creative Commons Attribution-ShareAlike License</a>.
+Audio files are from <a href='https://commons.wikimedia.org/wiki/Main_Page'>Wikimedia Commons</a> licensed under <a href='https://www.gnu.org/licenses/fdl-1.3.html'>GNU Free Documentation License</a> and/or <a href='https://creativecommons.org/licenses/by-sa/3.0/'> Creative Commons Attribution-ShareAlike License</a>, or in the public domain.
 
 GNU Free Documentation License:
 

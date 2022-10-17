@@ -54,11 +54,22 @@ class PhraseList extends React.Component {
       [[['Und', '/audio/De-und.ogg'], ['wer', ''], ['bist', ''], ['du', ''], ['?', null]], 'And who are you?'],
       [[['Freut', '/audio/De-freut.ogg'], ['mich', ''], ['.', null]], 'I am glad.'],
       [[['Woher', '/audio/De-woher.ogg'], ['kommen', '/audio/De-kommen2.ogg'], ['Sie', ''], ['?', null]], 'Where are you from?'],
-      [[['Ich', '/audio/De-ich.ogg'], ['kommen', '/audio/De-kommen2.ogg'], ['aus', ''], ['...', null]], 'I come from ...'],
+      [[['Ich', '/audio/De-ich.ogg'], ['komme', ''], ['aus', ''], ['...', null]], 'I come from ...'],
       [[['Woher', '/audio/De-woher.ogg'], ['kommst', ''], ['du', ''], ['?', null]], 'Where do you come from?'],
       [[['Kommen', '/audio/De-kommen2.ogg'], ['Sie', ''], ['aus', ''], ['...?', null]], 'Are you from ...?'],
       [[['Wo', '/audio/De-wo.ogg'], ['wohnst', ''], ['du', ''], ['?', null]], 'Where do you live?'],
       [[['Welche', '/audio/De-welche.ogg'], ['Sprachen', '/audio/De-sprachen.ogg'], ['sprichst', ''], ['du', ''], ['?', null]], 'Which languages do you speak?'],
+      [[['Ich', '/audio/De-ich.ogg'], ['spreche', ''], ['Deutsch', '/audio/CPIDL_German_-_Deutsch.ogg'], ['.', null]], 'I speak German.'],
+      [[['Was', '/audio/DE-was.ogg'], ['machen', '/audio/De-machen2.ogg'], ['Sie', ''], ['?', null]], 'What do you do?'],
+      [[['Was', '/audio/DE-was.ogg'], ['machst', ''], ['du', ''], ['?', null]], 'What do you do?'],
+      [[['Was', '/audio/DE-was.ogg'], ['sind', ''], ['Sie', ''], ['von', ''], ['Beruf', ''], ['?', '']], 'What\'s your occupation?'],
+      [[['Ich', ''], ['arbeite', ''], ['als', ''], ['Architekt', ''], ['.', null]] , 'I work as an architect.'],
+      [[['Was', '/audio/DE-was.ogg'], ['bist', ''], ['du', ''], ['von', ''], ['Beruf', ''], ['?', '']], 'What is your profession?'],
+      [[['Ich', ''], ['studiere', ''], ['Architektur', ''], ['/', null], ['Informatik', '/audio/De-Informatik.OGG'], ['.', null]], 'I study architecture/computer science.'],
+      [[['Wo', ''], ['arbeiten', ''], ['Sie', ''], ['?', null]], 'Where do you work?'],
+      [[['Wo', ''], ['arbeitest', ''], ['du', ''], ['?', null]], 'Where do you work?'],
+      [[['Ich', ''], ['arbeite', ''], ['bei'], ['...', null]], 'I work at ...'],
+      [[['Sie', ''], ['macht', ''], ['Mode', ''], ['für', ''], ['Kinder', ''], ['.', null]], 'She makes fashion for children.'],
     ];
     let phrases = [];
     for (const phrase of phrasesList) {
@@ -93,7 +104,7 @@ function Page(props) {
         <PhraseList />
       </main>
       <footer>
-        <small>On <a href='https://github.com/allc/my-german-phrase-list'>GitHub</a>. Content is available under the <a href='https://creativecommons.org/licenses/by-sa/3.0/'>Creative Commons Attribution-ShareAlike License</a>. Audio files are from <a href='https://commons.wikimedia.org/wiki/Main_Page'>Wikimedia Commons</a> licensed under <a href='https://www.gnu.org/licenses/fdl-1.3.html'>GNU Free Documentation License</a> and/or <a href='https://creativecommons.org/licenses/by-sa/3.0/'> Creative Commons Attribution-ShareAlike License</a>. See <a href='https://github.com/allc/my-german-phrase-list/blob/master/LICENSE.md'>LICENSE.md</a> for more information.</small>
+        <small>On <a href='https://github.com/allc/my-german-phrase-list'>GitHub</a>. Content is available under the <a href='https://creativecommons.org/licenses/by-sa/3.0/'>Creative Commons Attribution-ShareAlike License</a>. Audio files are from <a href='https://commons.wikimedia.org/wiki/Main_Page'>Wikimedia Commons</a> licensed under <a href='https://www.gnu.org/licenses/fdl-1.3.html'>GNU Free Documentation License</a> and/or <a href='https://creativecommons.org/licenses/by-sa/3.0/'> Creative Commons Attribution-ShareAlike License</a>, or in the public domain. See <a href='https://github.com/allc/my-german-phrase-list/blob/master/LICENSE.md'>LICENSE.md</a> for more information.</small>
       </footer>
     </>
   )
