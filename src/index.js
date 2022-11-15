@@ -70,6 +70,9 @@ class PhraseList extends React.Component {
       [[['Wo', ''], ['arbeitest', ''], ['du', ''], ['?', null]], 'Where do you work?'],
       [[['Ich', ''], ['arbeite', ''], ['bei'], ['...', null]], 'I work at ...'],
       [[['Sie', ''], ['macht', ''], ['Mode', ''], ['für', ''], ['Kinder', ''], ['.', null]], 'She makes fashion for children.'],
+      [[['eine', ''], ['Brille', '']], 'glasses'],
+      [[['ein', ''], ['Bleistift', '']], 'a pencil'],
+      [[['eine', ''], ['Tasche', '']], 'a pocket'],
     ];
     let phrases = [];
     for (const phrase of phrasesList) {
